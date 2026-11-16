@@ -290,23 +290,7 @@
             <p class="small"><b>Blocked with no “Run anyway”? (Windows 11 Smart App Control).</b> Smart App Control can block apps that are not signed. Open <b>Windows Security</b>, then <b>App &amp; browser control</b>, then <b>Smart App Control settings</b> and choose <b>Off</b>. You can turn it back on later in the same place. Or wait for a signed version of Zarp.</p>
           </details>
         </div>
-        <div class="well get-card" id="card-mac">
-          <h3>mac</h3>
-          <ol class="mini">
-            <li>Press <b>copy</b> below.</li>
-            <li>Press <kbd>Cmd+Space</kbd>, type <b>Terminal</b> and press Enter.</li>
-            <li>Press <kbd>Cmd+V</kbd> to paste, then press Enter. Zarp goes into Applications, opens and asks which folders to read.</li>
-          </ol>
-          <div class="shell-row">
-            <input id="sh-line" class="shell-cmd" readonly aria-label="Terminal install command" value="curl -fsSL https://ishaandugar.github.io/zarp/install.sh | bash">
-            <button class="btn btn--primary shell-copy" type="button" data-copy="sh-line">copy</button>
-          </div>
-          <p class="small">For Macs with an M1 chip or newer. It checks the download first, and there’s no “can’t verify the app” step.</p>
-          <details class="alt">
-            <summary>Rather download it yourself?</summary>
-            <p class="small"><a href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-mac-arm64.zip" class="dl-link">Download Zarp for Mac</a> and drag <b>Zarp Beta</b> into Applications. The first time, your Mac says it can’t check the app: open <b>System Settings</b>, then <b>Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. Only once.</p>
-          </details>
-        </div>
+        <p class="small">Mac: coming later.</p>
         <div class="get-alt">
           <p><b>Then:</b> pick your folders and press Start. Using the Claude or ChatGPT app? Quit it fully (right-click its icon near the clock) and open it again so it sees Zarp. On Claude Code, start a new session.</p>
           <p class="small">First thing to try: “Using Zarp, what do my notes say about <i>a topic from your notes</i>? Give the file and page.” Or skip the AI and press <kbd>Ctrl+Alt+Space</kbd>.</p>
@@ -392,7 +376,6 @@
     });
     box.addEventListener('focus', () => box.select());
   });
-  if (/Mac/.test(navigator.platform || navigator.userAgent)) { const g = document.getElementById('get'); if (g) g.classList.add('is-mac'); }
 })();
 </script>
 </body>
