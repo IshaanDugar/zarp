@@ -272,17 +272,39 @@
         <div class="well get-card" id="card-win">
           <h3>windows</h3>
           <p>Windows 10 or 11. About 130 MB, and it updates itself.</p>
-          <!-- RELEASE-URL -->
-          <a class="btn btn--primary dl-link" href="https://github.com/IshaanDugar/DiskAI/releases/latest/download/Zarp-Setup.exe">Download Zarp for Windows</a>
           <ol class="mini">
-            <li>Open <b>Zarp-Setup.exe</b> from your Downloads folder.</li>
-            <li>Zarp installs and asks which folders to read. Pick them and press <b>Start</b>.</li>
+            <li>Press <b>copy</b> below.</li>
+            <li>Press the <kbd>Windows</kbd> key, type <b>PowerShell</b> and press Enter. A blue or black window opens.</li>
+            <li>Right-click inside it to paste, then press Enter. Zarp installs by itself and asks which folders to read.</li>
           </ol>
+          <div class="shell-row">
+            <input id="ps-line" class="shell-cmd" readonly aria-label="PowerShell install command" value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
+            <button class="btn btn--primary shell-copy" type="button" data-copy="ps-line">copy</button>
+          </div>
+          <p class="small">This is the official installer for Zarp. It checks the download before installing.</p>
+          <p class="small">Prefer a normal installer? <a class="dl-link" href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Setup.exe"><b>Download Zarp-Setup.exe</b></a> and open it from your Downloads folder. Zarp installs and asks which folders to read. Pick them and press <b>Start</b>.</p>
           <details class="alt" id="win-warning">
             <summary>Windows warning?</summary>
             <p class="small">Zarp is not code-signed yet, so Windows may ask you to confirm. This is common for new apps from small makers.</p>
             <p class="small"><b>“Windows protected your PC” (SmartScreen).</b> Click <b>More info</b>, then <b>Run anyway</b>.</p>
             <p class="small"><b>Blocked with no “Run anyway”? (Windows 11 Smart App Control).</b> Smart App Control can block apps that are not signed. Open <b>Windows Security</b>, then <b>App &amp; browser control</b>, then <b>Smart App Control settings</b> and choose <b>Off</b>. You can turn it back on later in the same place. Or wait for a signed version of Zarp.</p>
+          </details>
+        </div>
+        <div class="well get-card" id="card-mac">
+          <h3>mac</h3>
+          <ol class="mini">
+            <li>Press <b>copy</b> below.</li>
+            <li>Press <kbd>Cmd+Space</kbd>, type <b>Terminal</b> and press Enter.</li>
+            <li>Press <kbd>Cmd+V</kbd> to paste, then press Enter. Zarp goes into Applications, opens and asks which folders to read.</li>
+          </ol>
+          <div class="shell-row">
+            <input id="sh-line" class="shell-cmd" readonly aria-label="Terminal install command" value="curl -fsSL https://ishaandugar.github.io/zarp/install.sh | bash">
+            <button class="btn btn--primary shell-copy" type="button" data-copy="sh-line">copy</button>
+          </div>
+          <p class="small">For Macs with an M1 chip or newer. It checks the download first, and there’s no “can’t verify the app” step.</p>
+          <details class="alt">
+            <summary>Rather download it yourself?</summary>
+            <p class="small"><a href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-mac-arm64.zip" class="dl-link">Download Zarp for Mac</a> and drag <b>Zarp Beta</b> into Applications. The first time, your Mac says it can’t check the app: open <b>System Settings</b>, then <b>Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. Only once.</p>
           </details>
         </div>
         <div class="get-alt">
@@ -360,6 +382,17 @@
   }), { threshold: 0.35 }) : null;
   document.querySelectorAll('[data-anim]').forEach((el) => { if (io) io.observe(el); else start(el); });
   document.querySelectorAll('.replay').forEach((b) => b.addEventListener('click', () => start(b.closest('[data-anim]'))));
+  document.querySelectorAll('[data-copy]').forEach((btn) => {
+    const box = document.getElementById(btn.dataset.copy);
+    if (!box) return;
+    btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(box.value); } catch { box.select(); }
+      btn.textContent = 'copied'; btn.dataset.done = '';
+      setTimeout(() => { btn.textContent = 'copy'; delete btn.dataset.done; }, 1800);
+    });
+    box.addEventListener('focus', () => box.select());
+  });
+  if (/Mac/.test(navigator.platform || navigator.userAgent)) { const g = document.getElementById('get'); if (g) g.classList.add('is-mac'); }
 })();
 </script>
 </body>
