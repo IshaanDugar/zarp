@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<!-- TODO: sync with rel10 final text before publish -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="mark" viewBox="0 0 100 100">
     <path d="M20 27H70L30 73H58" fill="none" stroke="currentColor" stroke-width="13"/>
@@ -27,70 +26,75 @@
   </nav>
   <main class="legal">
     <h1>Zarp privacy notice</h1>
-    <p>DRAFT built only from <code>data_flow_inventory.md</code> (section letters in brackets point there). Items in [BRACKETS] are for the owner to fill or confirm. Not legal advice; see LAWYER CHECK marks.</p>
-    <p>Version: 1.0. Last updated: [DATE].</p>
+    <p>Version: 1.0. Last updated: 2026-11-16.</p>
     <h2>Who we are</h2>
-    <p>Zarp is free software made by Ishaan, an individual based in Singapore ("the developer", "we"). Contact for privacy questions, access, correction, withdrawal and deletion: <b><a href="mailto:ishaandugar@u.nus.edu">ishaandugar@u.nus.edu</a></b>.</p>
+    <p>Zarp is made by Ishaan, an individual based in Singapore ("the developer", "we"). Contact for privacy questions, access, correction, withdrawal and deletion: <b>ishaandugar@u.nus.edu</b>.</p>
     <h2>The short version</h2>
     <ul>
       <li>Your files and the search index stay on your computer. Zarp reads your files and never changes them.</li>
       <li>By default Zarp sends the developer usage numbers tied to a random install ID (counts, timings, error codes). It does not send your questions, file names or text from your documents unless you switch on "Share full details".</li>
       <li>If you connect an AI app, the passages Zarp finds for that app are given to that app and then go to that app's company. That is outside Zarp's control.</li>
-      <li>Zarp checks GitHub for updates and the date.</li>
+      <li>Zarp checks GitHub for updates. Version 1.0 does not require a date check to keep working.</li>
     </ul>
     <h2>What Zarp collects and why</h2>
-    <h3>1. Usage reports (default: counts only) [A]</h3>
+    <h3>1. Usage reports (default: counts only)</h3>
     <ul>
-      <li>What: a random install ID (a random number made when you first run Zarp, not linked to your name, email, account or computer name), the Zarp version, and numbers and codes: how long searches took, how many results, which kind of file type came first (for example "pdf"), error codes, the size and speed of your computer in numbers (CPU count, memory, free disk space, screen size), how many files were read, and the name of a connected AI app from a fixed list. For each question it sends the question's length and a scrambled fingerprint (a salted hash) made with a random key that Zarp throws away when it closes. The developer cannot turn the fingerprint back into your question, and cannot match the same question across separate runs.</li>
+      <li>What: a random install ID (a random number made when you first run Zarp, not your computer name; if you provide optional contact details, the same ID links that separate contact record to this installation), the Zarp version, and numbers and codes: how long searches took, how many results, which kind of file type came first (for example "pdf"), error codes, the size and speed of your computer in numbers (CPU count, memory, free disk space, screen size), how many files were read, and the name of a connected AI app from a fixed list. Counts-only searches and connected-app calls are grouped into daily counts and latency buckets. Your questions are not included.</li>
       <li>What it does not send in this mode: your questions, file names, folder names, file paths, text from your documents, your computer name, operating-system text, CPU model, language setting, or the text of error messages.</li>
       <li>Purpose: to fix bugs, measure speed and reliability, and decide what to improve.</li>
-      <li>Like any internet connection, the server receiving the report can see your IP address at that moment. [OWNER CHECK: whether the server keeps IP logs and for how long.]</li>
+      <li>Like any internet connection, the server receiving the report can see your IP address at that moment. Providers may retain connection and security logs under their own policies; contact us about those records.</li>
       <li>You can switch these reports off at any time in Settings &gt; Privacy ("Send anonymous usage counts"). When they are off, Zarp records and sends nothing, and any unsent reports on your computer are deleted.</li>
     </ul>
-    <h3>2. "Share full details" (optional, off by default) [A5]</h3>
+    <h3>2. "Share full details" (optional, off by default)</h3>
     <p>You can turn it on in Settings &gt; Privacy. If you do, Zarp can also send: the text of your questions (up to 2,000 characters), file names and cleaned file paths of top results (your folder's name plus the path inside it; the rest of the path is removed), the passages (text from your documents) that an AI app received, the notes you give in the feedback tool, error messages, operating system, CPU model, language setting and similar details. Anything sent in this mode can include personal information that is in your files, questions or file names. Turn it on only if you are comfortable with that.</p>
     <ul>
       <li>Purpose: to understand and fix wrong or missed answers.</li>
       <li>Turn it off at any time in Settings. Rows still waiting on your computer are cut down to counts-only straight away. Rows already sent are not recalled; see "Deleting your data".</li>
       <li>Safety brake: a signed update message from the developer can reduce or stop the detailed rows centrally. It cannot switch on anything you have not allowed.</li>
     </ul>
-    <h3>3. Written feedback [A6]</h3>
+    <h3>3. Written feedback</h3>
     <p>Star ratings are sent as numbers. Your written comment is sent only if you tick "Send my written comment too" for that comment, or you have turned on Share full details. Paths in the comment are cleaned, and it is cut at 4,000 characters. Your AI app can also send feedback through Zarp's feedback tool when you ask it to; in default mode only the verdict (for example "wrong answer") and counts are sent, not your note or document text. When usage reports are off, no ratings, verdicts or written comments are uploaded.</p>
     <ul>
       <li>Purpose: to read what you tell us and improve Zarp.</li>
     </ul>
-    <h3>4. Update checks and the date check [B]</h3>
-    <p>Zarp asks GitHub for a small update file about every 6 hours and at startup. It sends only the Zarp version in the request's user-agent text and the ordinary information any web request carries (your IP address). It does not send your install ID. If it cannot get the date from that file, it asks github.com for the date. When a new version is available, Zarp can download the installer from the address in that file, check it against a fingerprint, and run it. The update file can also set a minimum version; if your version is older than that minimum, search stops until you update. GitHub's own terms and privacy statement apply to its servers.</p>
-    <h3>5. Search model download [C]</h3>
-    <p>Zarp's search model is [OWNER CHECK: bundled in the installer / downloaded on first run]. If it is downloaded, it comes from huggingface.co, which will see your IP address; their terms apply.</p>
-    <h3>6. Connected AI apps [D]</h3>
+    <h3>4. Update checks and the date check</h3>
+    <p>Zarp asks GitHub for a small update file about every 6 hours and at startup. It sends only the Zarp version in the request's user-agent text and the ordinary information any web request carries (your IP address). It does not send your install ID. Version 1.0 does not expire or require an online date check. When a new version is available, Zarp can download the installer from the address in that file, check it against a fingerprint, and run it. The update file can also set a minimum version; if your version is older than that minimum, search stops until you update. GitHub's own terms and privacy statement apply to its servers.</p>
+    <h3>5. Search model download</h3>
+    <p>The installer includes the search model. If the installed copy is missing or damaged, a replacement may be downloaded from huggingface.co, which will see your IP address; its terms apply.</p>
+    <h3>6. Connected AI apps</h3>
     <p>When you connect an AI app (for example Claude, ChatGPT/Codex, Cursor or Gemini CLI), that app can ask Zarp to search the folders you shared. Zarp returns passages of your files, with file name, folder name and page or slide, to that app. The app then handles the text under its own company's terms and privacy policy, which may include sending it to that company's servers and storing it. Zarp does not control this. Share only folders whose content you are happy for that AI app to receive. You can change the shared folders in Zarp and disconnect an app at any time. Connecting adds a Zarp entry to that app's own settings file; disconnecting removes it.</p>
-    <h2>What stays on your computer [E]</h2>
-    <p>In <code>%LOCALAPPDATA%\DiskAI-Beta</code> (Windows) or <code>~/Library/Application Support/DiskAI-Beta</code> (macOS): the search index, which includes the readable text of the files you chose, their paths and names, and number vectors; your settings, including your shared folders; unsent usage-report rows; the install ID; a local record of results you opened or pinned (with your search words); totals for the Analytics page; a log file of warnings and errors; downloaded updates and model files. [OWNER CHECK: confirm the log file holds no personal text; the code review could not confirm.] Anyone who can open your user account can read these files, so protect your computer account and disk (for example with disk encryption).</p>
+    <h2>Optional contact details</h2>
+    <p>You can leave the "Stay in touch (optional)" card empty and use Zarp without signing in.</p>
+    <p>If you choose to provide them, we store your email address, selected role (Student, Finance or investing, or Other), update-email choice, install ID and the date you saved them. This is a separate contact record, not a usage-report or feedback row. It uses the same install ID. Contact details are stored in India (Supabase ap-south-1, Mumbai).</p>
+    <p>We use these details only to contact you about Zarp. The monthly updates-and-tips checkbox is off by default; we send those messages only when you tick it. Every such email includes an unsubscribe option.</p>
+    <p>Contact sharing is independent of "Send anonymous usage counts". Turning usage reports off does not remove contact details or withdraw the separate contact choice. Change that choice or choose "Remove my email" in Settings &gt; Privacy to clear the local copy and request deletion of this installation's contact records. New contact submissions are attempted at most three times within 24 hours. Removal stays pending until the server confirms it; after three failed attempts it is retried at most once a day. Settings shows "Removal pending, will retry" while it is waiting. A later contact change does not cancel removal and is submitted only after removal completes. Contact us at <a href="mailto:ishaandugar@u.nus.edu">ishaandugar@u.nus.edu</a> for help with removal; include your support ID.</p>
+    <p>We retain contact details until you remove them or for no longer than 24 months without any app start, whichever comes first. They are not covered by the 90-day usage-report deletion schedule. You can also request access, correction, withdrawal or deletion by emailing us with your support ID.</p>
+    <h2>What stays on your computer</h2>
+    <p>In <code>%LOCALAPPDATA%\DiskAI-Beta</code> (Windows) or <code>~/Library/Application Support/DiskAI-Beta</code> (macOS): the search index, which includes the readable text of the files you chose, their paths and names, and number vectors; your settings, including your shared folders; unsent usage-report rows; your optional contact choice and any pending contact request; the install ID; a local record of results you opened or pinned (with your search words); totals for the Analytics page; a log file of warnings and errors; downloaded updates and model files.  Anyone who can open your user account can read these files, so protect your computer account and disk (for example with disk encryption).</p>
     <h2>Legal bases and your choices</h2>
     <ul>
-      <li>Singapore (PDPA): we collect, use and disclose personal data for the purposes above, based on your consent given when you accept the terms and use Zarp, and on your choice to switch on full details or tick the comment box. You may withdraw consent for optional items at any time (turn off Share full details, do not tick the comment box, disconnect an AI app, uninstall). Withdrawing does not undo past lawful use. To stop all usage-report collection and uploads, turn off Send anonymous usage counts in Settings &gt; Privacy. [LAWYER CHECK: PDPA consent and deemed-consent wording.]</li>
-      <li>EU/UK users (GDPR-style): the developer treats the counts-only reports as processed for the developer's legitimate interest in keeping the software working, and the detailed items and feedback text as based on your consent. Because the install ID is random and not linked to you, the developer may not be able to identify whose data a row is; to use your rights you will need to give your install ID. You have the right to access, correct, delete, restrict, object to and (where it applies) move your data, and to complain to your data protection authority. [LAWYER CHECK: whether GDPR applies to a non-EU developer here, and if an EU representative is needed.]</li>
+      <li>Singapore (PDPA): we collect, use and disclose personal data for the purposes above, based on your consent given when you accept the terms and use Zarp, and on your choice to switch on full details or tick the comment box. You may withdraw consent for optional items at any time (turn off Share full details, do not tick the comment box, disconnect an AI app, uninstall). Withdrawing does not undo past lawful use. To stop all usage-report collection and uploads, turn off Send anonymous usage counts in Settings &gt; Privacy.</li>
+      <li>EU/UK users (GDPR-style): the developer treats the counts-only reports as processed for the developer's legitimate interest in keeping the software working, and the detailed items and feedback text as based on your consent. The install ID identifies an installation, so to use your rights you will need to give your install ID. You have the right to access, correct, delete, restrict, object to and (where it applies) move your data, and to complain to your data protection authority.</li>
     </ul>
     <h2>Access, correction and deletion</h2>
     <ul>
-      <li>The usage data we hold is linked only to the install ID. Zarp's Settings &gt; Help &gt; "Copy my support ID" copies it. Email <a href="mailto:ishaandugar@u.nus.edu">ishaandugar@u.nus.edu</a> with that ID and tell us what you want (a copy, correction or deletion). We aim to reply within [30] days. Without your install ID we cannot find rows. [OWNER CHECK: confirm deletion by install ID is possible on the server and who does it.]</li>
+      <li>The usage data we hold is linked only to the install ID. Zarp's Settings &gt; Help &gt; "Copy my support ID" copies it. Email <a href="mailto:ishaandugar@u.nus.edu">ishaandugar@u.nus.edu</a> with that ID and tell us what you want (a copy, correction or deletion). We aim to reply within 30 days. Without your install ID we cannot find rows.</li>
       <li>Reports are structured numbers, so "correction" usually means deletion.</li>
-      <li>Local data: quit Zarp, uninstall it (Windows Settings &gt; Apps &gt; Installed apps &gt; Zarp &gt; Uninstall; on macOS remove Zarp.app), then delete the data folder named above to remove the index, settings and queue. Deleting that folder also removes the install ID (a new one is made if you reinstall). Your original files stay where they were. Autostart and AI-app entries: switch off "Open Zarp when I log in" and disconnect the AI app in Zarp first, or remove the Zarp entry in that app's settings. [OWNER CHECK: confirm that uninstall also removes the autostart entry and the AI-app entries; the code review did not trace the uninstaller.]</li>
+      <li>Local data: quit Zarp, uninstall it (Windows Settings &gt; Apps &gt; Installed apps &gt; Zarp &gt; Uninstall; on macOS remove Zarp.app), then delete the data folder named above to remove the index, settings and queue. Deleting that folder also removes the install ID (a new one is made if you reinstall). Your original files stay where they were. Autostart and AI-app entries: switch off "Open Zarp when I log in" and disconnect the AI app in Zarp first, or remove the Zarp entry in that app's settings.</li>
     </ul>
     <h2>How long we keep data</h2>
     <ul>
-      <li>On your computer: until you delete the data folder. Unsent report rows are capped at 20 MB per queue file, oldest dropped first.</li>
-      <li>On the server: up to 24 months, then deleted. Reports already sent before you switched them off are kept until then unless you ask us to delete them sooner (see above).</li>
+      <li>On your computer: until you delete the data folder. Unsent usage queues and their budget state are capped at 2 MB together, oldest queued rows dropped first.</li>
+      <li>On the server: raw usage reports are kept for up to 90 days. Daily totals without install IDs may be kept for up to 24 months. Reports already sent before you switched them off remain until their retention period ends unless you ask us to delete them sooner. Optional contacts follow the separate retention period above.</li>
     </ul>
-    <h2>Where data goes (transfer abroad) [A1]</h2>
-    <p>Usage reports go to a database run by Supabase at <code>cjdzpbnfrolzcbevcujj.supabase.co</code>. Region: <b>[OWNER CHECK: Supabase project region]</b>. If the region is outside Singapore, your data is transferred abroad and we rely on the provider's protections to give it a standard of protection comparable to the PDPA. Update and date checks go to GitHub; the model, if downloaded, from Hugging Face; connected AI apps send data to their own servers. [LAWYER CHECK: PDPA Transfer Limitation wording.]</p>
+    <h2>Where data goes (transfer abroad)</h2>
+    <p>Usage reports go to a database run by Supabase at <code>cjdzpbnfrolzcbevcujj.supabase.co</code>. Usage reports and contact details are stored in India, in Supabase region ap-south-1 (Mumbai), outside Singapore. This is a transfer abroad, and we rely on the provider's protections to give the data a standard of protection comparable to the PDPA. Update and date checks go to GitHub; the model, if downloaded, from Hugging Face; connected AI apps send data to their own servers.</p>
     <h2>Protection</h2>
-    <p>Reports are sent over HTTPS with certificate checks. Free-text and path fields are cleaned of absolute paths before sending. The upload key shipped in the app is a public client key; access rules on the server decide what it can do. [OWNER CHECK: confirm the database rules allow inserts only and block public reads.] The update file is checked against a signature before use. No system is perfectly secure; see SECURITY.md to report a problem.</p>
+    <p>Reports are sent over HTTPS with certificate checks. Free-text and path fields are cleaned of absolute paths before sending. The upload key shipped in the app is a public client key; access rules on the server decide what it can do.  The update file is checked against a signature before use. No system is perfectly secure; see SECURITY.md to report a problem.</p>
     <h2>Children and people under 18</h2>
-    <p>Zarp is not aimed at children. A user under 18 [LAWYER CHECK: Singapore generally treats under-18s as minors; the PDPA sets no fixed age; I recall PDPC guidance treating a minor of about 13 or older as able to consent for themselves, which must be verified] should have a parent or guardian agree to the terms and this notice, and a parent or guardian can contact us to see or delete data. Because the default reports hold no name or email, and detailed mode is off by default, tell users under 18 not to turn on Share full details. We do not knowingly collect data from children under 13; contact us to delete any you find.</p>
+    <p>Zarp is not aimed at children. A user under 18  should have a parent or guardian agree to the terms and this notice, and a parent or guardian can contact us to see or delete data. Because usage rows contain no name or email, and detailed mode is off by default, tell users under 18 not to turn on Share full details. We do not knowingly collect data from children under 13; contact us to delete any you find.</p>
     <h2>Changes</h2>
-    <p>We may update this notice. The date at the top will change, and material changes will be shown in the app or the release notes. Using Zarp after a change means you accept it. [LAWYER CHECK]</p>
+    <p>We may update this notice. The date at the top will change, and material changes will be shown in the app or the release notes. Using Zarp after a change means you accept it.</p>
     <h2>Contact</h2>
     <p><a href="mailto:ishaandugar@u.nus.edu">ishaandugar@u.nus.edu</a></p>
   </main>
